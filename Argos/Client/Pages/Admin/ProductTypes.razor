@@ -1,0 +1,95 @@
+﻿@page "/admin/product-types"
+@inject IProductTypeService ProductTypeService
+@implements IDisposable
+@attribute [Authorize(Roles = "Admin")]
+
+<h3>Product Types</h3>
+
+@foreach (var productType in ProductTypeService.ProductTypes)
+{
+	@if (productType.Editing)
+	{
+		<EditForm Model="editingProductType" OnSubmit="UpdateProductType">
+			<div class="row">
+				<div class="col">
+					<InputText @bind-Value="editingProductType.Name" class="form-control"></InputText>
+				</div>
+				<div class="col">
+					<button type="submit" class="btn btn-primary">
+						<i class="oi oi-cloud-upload"></i>
+					</button>
+				</div>
+			</div>
+		</EditForm>
+	}
+	else
+	{
+		<div class="row">
+			<div class="col">
+				@productType.Name
+			</div>
+			<div class="col">
+				<button class="btn btn-primary" style="background: linear-gradient(180deg, rgba(5, 39, 103, 0.7) 0%, rgba(58, 6, 71, 0.7) 70%);"
+					@onclick="(()=>EditProductType(productType))">
+					<i class="oi oi-pencil"></i>
+				</button>
+				<button class="btn btn-primary" style="background: linear-gradient(180deg, rgba(5, 39, 103, 0.7) 0%, rgba(58, 6, 71, 0.7) 70%);"
+					@onclick="(()=>DeleteProductType(productType.Id))">
+					<i class="oi oi-trash"></i>
+				</button>
+			</div>
+		</div>
+	}
+}
+<button class="btn btn-primary" 
+	style="background: linear-gradient(180deg, rgba(5, 39, 103, 0.7) 0%, rgba(58, 6, 71, 0.7) 70%);"
+	@onclick="CreateNewProductType">
+	<i class="oi oi-plus"></i> Add new product type
+</button>
+
+@code {
+	ItemType editingProductType = null;
+
+	protected override async Task OnInitializedAsync()
+	{
+		await ProductTypeService.GetProductTypes();
+		ProductTypeService.OnChange += StateHasChanged;
+	}
+
+	public void Dispose()
+	{
+		ProductTypeService.OnChange -= StateHasChanged;
+	}
+
+	private void EditProductType(ItemType productType)
+	{
+		productType.Editing = true;
+		editingProductType = productType;
+	}
+
+	private async void DeleteProductType(int productTypeId)
+	{
+		await ProductTypeService.DeleteProductType(productTypeId);
+		await ProductTypeService.GetProductTypes();
+
+	}
+
+	private void CreateNewProductType()
+	{
+		editingProductType = ProductTypeService.CreateNewProductType();
+	}
+
+	private async Task UpdateProductType()
+	{
+		if(editingProductType.IsNew)
+		{
+			await ProductTypeService.AddProductType(editingProductType);
+		}
+		else
+		{
+			await ProductTypeService.UpdateProductType(editingProductType);
+		}
+
+		editingProductType = new ItemType();
+	}
+}

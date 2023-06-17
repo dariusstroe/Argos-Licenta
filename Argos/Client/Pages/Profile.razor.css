@@ -1,0 +1,54 @@
+﻿.profile-header {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.profile-greeting {
+    font-size: 2rem;
+    color: #333;
+}
+
+.profile-username {
+    color: #555;
+    font-weight: bold;
+}
+
+.profile-section {
+    margin-bottom: 2.5rem;
+}
+
+.profile-heading {
+    margin-bottom: 1rem;
+    color: #333;
+}
+
+.profile-form {
+    margin-top: 1.5rem;
+}
+
+.profile-submit-button {
+    background: linear-gradient(180deg, rgba(5, 39, 103, 0.7) 0%, rgba(58, 6, 71, 0.7) 70%);
+    border: none;
+    border-radius: 0.3rem;
+    padding: 0.5rem 1.5rem;
+    font-size: 1rem;
+}
+
+.profile-validation-message {
+    color: #dc3545;
+    margin-top: 0.2rem;
+    font-size: 0.9rem;
+}
+
+.profile-message {
+    margin-top: 1rem;
+    border: none;
+    border-radius: 0.3rem;
+    background-color: #d1ecf1;
+    padding: 1rem;
+    color: #0c5460;
+}
+
+.button-group {
+    margin-top: 1rem;
+}

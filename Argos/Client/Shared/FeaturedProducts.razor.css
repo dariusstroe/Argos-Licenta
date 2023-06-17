@@ -1,0 +1,121 @@
+﻿    .container {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        overflow-x: hidden;
+    }
+
+    img {
+        max-width: 100%;
+        max-height: 100%;
+        border-radius: 8px;
+        transition: transform .2s;
+        margin-bottom: 10px;
+    }
+
+.container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    overflow-x: hidden;
+}
+
+img {
+    max-width: 100%;
+    max-height: 100%;
+    border-radius: 8px;
+    transition: transform .2s;
+    margin-bottom: 10px;
+}
+
+    img:hover {
+        transform: scale(1.05);
+        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+    }
+
+.featured-product {
+    width: 220px;
+    margin: 20px;
+    text-align: center;
+    padding: 20px;
+    border-radius: 10px;
+    background: linear-gradient(180deg, rgba(5, 39, 103, 0.7) 0%, rgba(58, 6, 71, 0.7) 70%) !important;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: box-shadow 0.3s ease;
+}
+
+.featured-product-title {
+    color: white !important;
+    font-weight: bold;
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+    .featured-product-title:hover {
+        color: #555;
+    }
+
+@media (max-width: 1023.98px) {
+    .container {
+        justify-content: flex-start;
+    }
+}
+
+h2 {
+    font-size: 32px;
+    text-align: center;
+    margin-top: 40px;
+    margin-bottom: 40px;
+    font-weight: 700;
+    color: #444;
+    text-transform: uppercase;
+}
+
+.price {
+    color: limegreen;
+    font-weight: bold;
+}
+
+
+    .featured-product {
+        width: 220px;
+        margin: 20px;
+        text-align: center;
+        padding: 20px;
+        border-radius: 10px;
+        background: linear-gradient(180deg, rgba(5, 39, 103, 0.7) 0%, rgba(58, 6, 71, 0.7) 70%) !important;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        transition: box-shadow 0.3s ease;
+    }
+
+    .featured-product-title {
+        color: white !important;
+        font-weight: bold;
+        text-decoration: none;
+        transition: color 0.2s ease;
+    }
+
+        .featured-product-title:hover {
+            color: #555;
+        }
+
+    @media (max-width: 1023.98px) {
+        .container {
+            justify-content: flex-start;
+        }
+    }
+
+    h2 {
+        font-size: 32px;
+        text-align: center;
+        margin-top: 40px;
+        margin-bottom: 40px;
+        font-weight: 700;
+        color: #444;
+        text-transform: uppercase;
+    }
+
+    .price {
+        color: limegreen;
+        font-weight: bold;
+    }
